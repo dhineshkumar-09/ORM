@@ -1,10 +1,15 @@
 # Ex02 Django ORM Web Application
-## Date: 24.10.2024
+
+## Date: 29/09/2025
 
 ## AIM
+
 To develop a Django application to store and retrieve data from a bank loan database using Object Relational Mapping(ORM).
+
 ## ENTITY RELATIONSHIP DIAGRAM
-![alt text](image.png)
+
+<img width="1019" height="528" alt="image" src="https://github.com/user-attachments/assets/3d5dadfd-0fe0-4e0c-8fe4-1db9e6e37ab4" />
+
 ## DESIGN STEPS
 
 ### STEP 1:
@@ -20,29 +25,35 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
-```
+
 admin.py
 
+```
 from django.contrib import admin
-from.models import Loan,LoanAdmin
-admin.site.register(Loan,LoanAdmin)
+from .models import Movie,MovieAdmin
+admin.site.register(Movie,MovieAdmin)
+```
 
 models.py
 
+```
 from django.db import models
 from django.contrib import admin
-class Loan(models.Model):
-   lid=models.CharField(max_length=15,primary_key="lid")
-   loantype=models.CharField(max_length=15)
-   name=models.CharField(max_length=15)
-   age=models.IntegerField()
-   aadhar=models.IntegerField()
-   documents=models.CharField(max_length=15)
+class Movie(models.Model):
+	Movie_name=models.CharField(max_length=50)
+	Ratings=models.FloatField(primary_key="Ratings")
+	Cast=models.CharField(max_length=50)
+	Release_year=models.DateField()
+	Genre=models.CharField(max_length=50)
+class MovieAdmin(admin.ModelAdmin):
+	list_display=('Movie_name','Ratings','Cast','Release_year','Genre')
 
 class LoanAdmin(admin.ModelAdmin):
     list_display=('lid','loantype','name','age','aadhar','documents')
 ```
 ## OUTPUT
-![alt text]({6F406084-1AF8-48BC-B331-D313ADB84800}.png)
+
+<img width="1026" height="700" alt="image" src="https://github.com/user-attachments/assets/fd819f85-e5d1-4379-8537-bfcaa66b7ad6" />
+
 ## RESULT
 Thus the program for creating a database using ORM hass been executed successfully
